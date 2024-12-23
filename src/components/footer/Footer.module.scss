@@ -1,0 +1,17 @@
+.footer {
+    color: var(--light-text-color);
+    border: none;
+    font-size: 16px;
+    position: relative;
+    background-color: var(--burger-menu-background-color);
+
+    &__inner {
+        border-top: 1px solid var(--decorative-line-color);
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.footer__inner > article:not(:first-child) {
+    border-top: 1px solid var(--decorative-line-color);
+}
