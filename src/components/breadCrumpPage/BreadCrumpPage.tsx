@@ -13,7 +13,7 @@ export const BreadCrumpPage = (props: BreadCrumpPageProps): React.JSX.Element =>
     return (
         <div className={styles.breadCrump}>
             {links.slice(0, links.length - 1).map((link) => (
-                <a className={styles.breadCrump__item} href={link.url}>
+                <a key={link.name} className={styles.breadCrump__item} href={link.url}>
                     {link.name}
                 </a>
             ))}
