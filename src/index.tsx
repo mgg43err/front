@@ -40,7 +40,8 @@ import { CarEditImages } from './componentsAdmin/carEditImages/CarEditImages';
 import { ChangeBanner } from './componentsAdmin/changeBanner/changeBanner';
 import { ThemeProvider } from './context/ThemeContext';
 import Catalog from './components/catalogPage/catalog/Catalog';
-import BrandModels from './components/catalogPage/brand/BrandModels';
+import BrandModels from './components/brandModels/BrandModels';
+import CarModelPage from './components/carModelPage/carModelPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 const router = createBrowserRouter(
@@ -77,6 +78,7 @@ const router = createBrowserRouter(
                 <Route path="success" element={<Success />} />
                 <Route path="catalog" element={<Catalog />} />
                 <Route path="catalog/:brand" element={<BrandModels />} />
+                <Route path="catalog/:brand/:model" element={<CarModelPage />} />
                 <Route path="*" element={<Navigate to={'error'} state={{ message: 'Страница не найдена' }} />} />
             </Route>
             <Route path="/admin" element={<Admin />}>

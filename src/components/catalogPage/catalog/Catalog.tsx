@@ -4,11 +4,7 @@ import { BreadCrumpPage } from '../../breadCrumpPage/BreadCrumpPage';
 import { getCarCatalogImg } from '../../../helpers/catalog/getCarCatalogImg';
 import { Loader } from '../../loader/Loader';
 import { Link, Outlet } from 'react-router-dom';
-
-type CarBrand = {
-    brand: string;
-    models_count: number;
-};
+import { CarBrand } from '../../../interfaces/catologCars.interface';
 
 const Catalog = (): React.JSX.Element => {
     const [carsCatalog, setCarsCatalog] = useState<CarBrand[] | null>(null);

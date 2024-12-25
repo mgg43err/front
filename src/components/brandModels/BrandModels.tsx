@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { BreadCrumpPage } from '../../breadCrumpPage/BreadCrumpPage';
+import { BreadCrumpPage } from '../breadCrumpPage/BreadCrumpPage';
 import styles from './Brand.module.scss';
-import { useParams } from 'react-router-dom';
-import { Loader } from '../../loader/Loader';
+import { Link, useParams } from 'react-router-dom';
+import { Loader } from '../loader/Loader';
 
 type CarsByBrand = {
     id: number;
@@ -54,7 +54,8 @@ const BrandModels = (): React.JSX.Element => {
                     ) : (
                         carsByBrand?.map((car) => {
                             return (
-                                <div
+                                <Link
+                                    to={`/catalog/${car.brand}/${car.model}_${car.id}`}
                                     key={`${car.id}_${car.brand}_${car.model}`}
                                     className={styles.model_card_container}
                                 >
@@ -71,7 +72,7 @@ const BrandModels = (): React.JSX.Element => {
                                         <span>{`${!car.consumption ? '-' : car.consumption} л/км`}</span>
                                     </div>
                                     <h3 className={styles.model_card_title}>{`${car.brand} ${car.model}`}</h3>
-                                </div>
+                                </Link>
                             );
                         })
                     )}
