@@ -12,6 +12,17 @@
     row-gap: 24px;
 }
 
+.modal_card_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.model_card_title {
+    font-size: 32px;
+    line-height: 48px;
+}
+
 .model_card_img {
     display: block;
     margin: 0 auto;

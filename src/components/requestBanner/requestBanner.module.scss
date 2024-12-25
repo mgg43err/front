@@ -1,0 +1,28 @@
+.request_banner_container {
+    align-items: center;
+    background: linear-gradient(136.43deg, var(--main-color) 55%, #fff 129.26%);
+    border-radius: 6px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.request_banner_title {
+    width: 55rem;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 40px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 750px) {
+    .request_banner_container {
+        display: flex;
+        flex-direction: column;
+    }
+    .request_banner_title {
+        width: auto;
+    }
+}
