@@ -1,6 +1,12 @@
+export interface CarModels {
+    id: number;
+    model: number;
+}
+
 export interface CarBrand {
     brand: string;
     models_count: number;
+    models: CarModels[];
 }
 
 export interface CarsByBrand {

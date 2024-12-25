@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Catalog.module.scss';
 import { BreadCrumpPage } from '../../breadCrumpPage/BreadCrumpPage';
-import { getCarCatalogImg } from '../../../helpers/catalog/getCarCatalogImg';
 import { Loader } from '../../loader/Loader';
-import { Link, Outlet } from 'react-router-dom';
 import { CarBrand } from '../../../interfaces/catologCars.interface';
+import CarCatologIcons from '../../carCatologIcons/carCatologIcons';
+import CarCatologList from '../../carCatologList/carCatologList';
 
 const Catalog = (): React.JSX.Element => {
     const [carsCatalog, setCarsCatalog] = useState<CarBrand[] | null>(null);
@@ -35,30 +35,25 @@ const Catalog = (): React.JSX.Element => {
                     ]}
                 />
                 <div className={styles.catalog}>
-                    <div className={styles.top__brands_container}>
-                        {isLoading ? (
-                            <Loader />
-                        ) : (
-                            carsCatalog?.map((car) => {
-                                return (
-                                    <Link
-                                        to={`/catalog/${car.brand}`}
-                                        key={car.brand}
-                                        className={styles.top_brands_item}
-                                    >
-                                        <div className={styles.top_brands_img}>
-                                            <img src={getCarCatalogImg(car.brand)} alt={car.brand} title={car.brand} />
-                                        </div>
-                                        <div className={styles.top_brands_title}>{car.brand}</div>
-                                        <div className={styles.top_brands_countcars}>{`${car.models_count} авто`}</div>
-                                    </Link>
-                                );
-                            })
-                        )}
-                    </div>
+                    {isLoading ? (
+                        <Loader />
+                    ) : (
+                        <>
+                            <div className={styles.top__brands_container}>
+                                {carsCatalog?.map((car) => {
+                                    return <CarCatologIcons key={car.brand} {...car} />;
+                                })}
+                            </div>
+                            <h2 className={styles.top__brands_title}>Cписок моделей автомобилей</h2>
+                            <div className={styles.car_list_wrapper}>
+                                {carsCatalog?.map((car, index) => {
+                                    return <CarCatologList key={`${car.brand}_${index}`} {...car} />;
+                                })}
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
-            <Outlet />
         </div>
     );
 };
