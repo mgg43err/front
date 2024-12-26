@@ -6,14 +6,9 @@ import { ButtonCardOpenModal } from '../buttonCardOpenModal/ButtonCard';
 import CarColorSwitcher from '../carColorSwiper/carColorSwiper';
 import FormSpecialOffer from '../formSpecialOffer/formSpecialOffer';
 
-interface CarModelGeneralInfoProps {
-    carModel: CarCatologModel;
-}
-
-const CarModelGeneralInfo = (props: CarModelGeneralInfoProps): React.JSX.Element => {
-    const { carModel } = props;
-    const { model, brand, acceleration, power, consumption, max_speed, car_catalog_configurations, car_colors } =
-        carModel;
+const CarModelGeneralInfo = (props: CarCatologModel): React.JSX.Element => {
+    const { model, brand, acceleration, power, consumption, max_speed, car_catalog_configurations, car_colors } = props;
+    const { configurations } = car_catalog_configurations[0];
 
     const [colorIndex, setColorIndex] = useState<number>(0);
 
@@ -44,7 +39,7 @@ const CarModelGeneralInfo = (props: CarModelGeneralInfoProps): React.JSX.Element
                 <div className={styles.car_model_wrapper}>
                     <div className={styles.car_model_by_credit}>
                         <div className={styles.car_model_price_wrapper}>
-                            <CarPrice price={car_catalog_configurations[0].configurations[0].special_price} />
+                            <CarPrice price={configurations[0].special_price} />
                             <div className={styles.car_moderl_btn_wrapper}>
                                 <ButtonCardOpenModal
                                     textContent="Купить в кредит"

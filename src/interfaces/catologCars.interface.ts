@@ -53,6 +53,16 @@ export interface CarCatologImages {
     url: string;
 }
 
+export interface carCatalogExtras {
+    group_name: {
+        id: number;
+        name: string;
+        created_at: string;
+        updated_at: string;
+    };
+    extra_names: string[];
+}
+
 export interface Configurations {
     id: number;
     package_name: string;
@@ -64,6 +74,7 @@ export interface Configurations {
     trade_in_discount: number;
     recycling_discount: number;
     special_price: number;
+    car_catalog_extras: carCatalogExtras[];
 }
 
 export interface CarCatologConfigurations {

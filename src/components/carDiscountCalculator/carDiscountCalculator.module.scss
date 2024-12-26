@@ -1,0 +1,31 @@
+.car_discount_input_list {
+    display: flex;
+    gap: 10px;
+}
+
+.car_discount_main {
+    display: flex;
+}
+
+.car_discount_overall_info {
+    position: relative;
+    align-items: center;
+    display: flex;
+    position: relative;
+    width: 333px;
+
+    img {
+        margin-top: auto;
+        -o-object-fit: contain;
+        object-fit: contain;
+        width: 100%;
+    }
+}
+
+.car_discount_generall_price {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}

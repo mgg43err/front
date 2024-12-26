@@ -3,7 +3,7 @@ import { CarBrand } from '../../interfaces/catologCars.interface';
 import styles from './carCatologList.module.scss';
 import React from 'react';
 
-const CarCatologList = (props: CarBrand) => {
+const CarCatologList = (props: CarBrand): React.JSX.Element => {
     const { brand, models } = props;
     return (
         <div className={styles.car_list_container}>
