@@ -24,9 +24,10 @@ const CarDiscountCalculator = (prop: CarDiscountCalculatorProps): React.JSX.Elem
             <div className={styles.car_discount_title}>{`Выбери свою выгоду на покупку ${brand} ${model}`}</div>
             <div className={styles.car_discount_main}>
                 <div className={styles.car_discount_input_list}>
-                    {discounts.map((elem) => {
+                    {discounts.map((elem, index) => {
                         return (
                             <CheckCreditDiscount
+                                key={`${elem.title}_${index}`}
                                 discountValue={elem.discount}
                                 description={elem.title}
                                 setDiscount={setDiscount}
