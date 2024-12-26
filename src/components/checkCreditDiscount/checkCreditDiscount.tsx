@@ -5,7 +5,7 @@ import styles from './checkCreditDiscount.module.scss';
 type CheckCreditDiscountProps = {
     discountValue: number;
     description: string;
-    setDiscount: Dispatch<SetStateAction<number[]>>;
+    setDiscount: Dispatch<SetStateAction<number>>;
 };
 
 const CheckCreditDiscount = (props: CheckCreditDiscountProps) => {
@@ -14,16 +14,12 @@ const CheckCreditDiscount = (props: CheckCreditDiscountProps) => {
     const handleCheckChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { value, checked } = event.currentTarget;
         const numericValue = Number(value);
-
-        setDiscount((prevValues) => {
-            if (checked) {
-                return [...prevValues, numericValue];
-            } else {
-                return prevValues.filter((val) => val !== numericValue);
-            }
-        });
+        if (checked) {
+            setDiscount((prev) => prev + numericValue);
+        } else {
+            setDiscount((prev) => prev - numericValue);
+        }
     };
-
     return (
         <label className={styles.car_discount_label}>
             <input onChange={handleCheckChange} value={discountValue} type="checkbox" name="credit-calc"></input>

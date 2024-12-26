@@ -123,6 +123,16 @@
                 width: 10px;
             }
         }
+        &:nth-of-type(5) {
+            text-decoration: line-through;
+        }
+        &:nth-of-type(6) {
+            color: var(--light-text-color);
+        }
+        &:nth-of-type(7) {
+            color: #ea2c4b;
+            font-weight: 600;
+        }
     }
 }
 

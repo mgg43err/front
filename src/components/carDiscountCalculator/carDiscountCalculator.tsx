@@ -10,11 +10,12 @@ type CarDiscountCalculatorProps = {
     brand: string;
     image: string;
     car_catalog_configurations: CarCatologConfigurations[];
-    setDiscount: Dispatch<SetStateAction<number[]>>;
+    discount: number;
+    setDiscount: Dispatch<SetStateAction<number>>;
 };
 
 const CarDiscountCalculator = (prop: CarDiscountCalculatorProps): React.JSX.Element => {
-    const { model, brand, image, car_catalog_configurations, setDiscount } = prop;
+    const { model, brand, image, car_catalog_configurations, setDiscount, discount } = prop;
 
     const discounts = getCreditDiscountsData(car_catalog_configurations);
 
@@ -36,7 +37,7 @@ const CarDiscountCalculator = (prop: CarDiscountCalculatorProps): React.JSX.Elem
                 <div className={styles.car_discount_overall_info}>
                     <div className={styles.car_discount_generall_price}>
                         <p>Oбщая скидка</p>
-                        <span>от {formatPrice(250000)}&#8381;</span>
+                        <span>от {formatPrice(discount)}&#8381;</span>
                     </div>
                     <img src={image} title={`${brand} ${model}`} alt={`${brand} ${model}`} />
                 </div>

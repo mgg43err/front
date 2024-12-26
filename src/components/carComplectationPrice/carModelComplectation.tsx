@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { CarCatologModel } from '../../interfaces/catologCars.interface';
 import styles from './carModelComplectation.module.scss';
 import CarDiscountCalculator from '../carDiscountCalculator/carDiscountCalculator';
+import { formatPrice } from '../../helpers/formatPrice';
 
 const CarModelComplectation = (props: CarCatologModel): React.JSX.Element => {
     const { model, brand, car_catalog_configurations, car_colors } = props;
     const { image } = car_colors[0];
 
     const [activeRowId, setActiveRowId] = useState<number | null>(null);
-    const [discount, setDiscount] = useState<number[]>([]);
-    console.log(discount);
+
+    const [discount, setDiscount] = useState<number>(0);
     const toggleRow = (id: number) => {
         setActiveRowId((prevId) => (prevId === id ? null : id));
     };
@@ -53,9 +54,9 @@ const CarModelComplectation = (props: CarCatologModel): React.JSX.Element => {
                                                 <td>{volume}</td>
                                                 <td>{transmission}</td>
                                                 <td>{power}</td>
-                                                <td>{price}</td>
-                                                <td>{discount.reduce((a, b) => a + b, 0)}&#8381;</td>
-                                                <td>0&#8381;</td>
+                                                <td>{formatPrice(price)}&#8381;</td>
+                                                <td>{formatPrice(discount)}&#8381;</td>
+                                                <td>{formatPrice(price - discount)}&#8381;</td>
                                             </tr>
                                             {activeRowId && (
                                                 <tr
@@ -99,6 +100,7 @@ const CarModelComplectation = (props: CarCatologModel): React.JSX.Element => {
                 </tbody>
             </table>
             <CarDiscountCalculator
+                discount={discount}
                 model={model}
                 brand={brand}
                 image={image}
