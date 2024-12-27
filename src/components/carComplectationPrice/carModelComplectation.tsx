@@ -17,7 +17,9 @@ const CarModelComplectation = (props: CarCatologModel): React.JSX.Element => {
 
     return (
         <div className={styles.car_model_complectation_wrapper}>
-            <h2 className={styles.car_model_complectation_title}>{`Комплектации и цены ${brand} ${model}`}</h2>
+            <div className={styles.car_model_complectation_title_wrapper}>
+                <h2 className={styles.car_model_complectation_title}>{`Комплектации и цены ${brand} ${model}`}</h2>
+            </div>
             <table>
                 <tbody>
                     <tr className={styles.car_model_prices_titles}>
@@ -54,9 +56,9 @@ const CarModelComplectation = (props: CarCatologModel): React.JSX.Element => {
                                                 <td>{volume}</td>
                                                 <td>{transmission}</td>
                                                 <td>{power}</td>
-                                                <td>{formatPrice(price)}&#8381;</td>
-                                                <td>{formatPrice(discount)}&#8381;</td>
-                                                <td>{formatPrice(price - discount)}&#8381;</td>
+                                                <td>{formatPrice(price)} &#8381;</td>
+                                                <td>{formatPrice(discount)} &#8381;</td>
+                                                <td>{formatPrice(price - discount)} &#8381;</td>
                                             </tr>
                                             {activeRowId && (
                                                 <tr

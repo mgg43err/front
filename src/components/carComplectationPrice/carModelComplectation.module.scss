@@ -8,6 +8,12 @@
     margin: 0 auto;
 }
 
+.car_model_complectation_title_wrapper {
+    display: block;
+    border-bottom: 1px solid var(--decorative-line-color);
+    padding-bottom: 20px;
+}
+
 .car_model_complectation_wrapper table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -20,6 +26,15 @@
     line-height: 48px;
     margin-top: 0px;
     position: relative;
+    &::before {
+        background: var(--main-color);
+        bottom: 0;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
 }
 
 .car_model_prices_titles {
@@ -169,6 +184,9 @@
         > *:nth-child(4) {
             display: none;
         }
+        > *:nth-child(5) {
+            display: none;
+        }
     }
 
     .car_model_complectation_title_main {
@@ -179,6 +197,9 @@
             display: none;
         }
         > *:nth-child(4) {
+            display: none;
+        }
+        > *:nth-child(5) {
             display: none;
         }
     }
