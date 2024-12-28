@@ -1,7 +1,7 @@
 .car_technical_chars_container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
     max-width: 1166px;
     width: 100%;
     padding: 0 20px;
@@ -15,7 +15,12 @@
 .car_technical_techno_wrapper {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 30px;
+}
+
+.car_technical_notification {
+    font-size: 20px;
+    align-self: center;
 }
 
 .car_technical_chars_title {

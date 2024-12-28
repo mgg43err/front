@@ -5,8 +5,9 @@ import { useParams } from 'react-router-dom';
 import { CarCatologModel } from '../../interfaces/catologCars.interface';
 import { Loader } from '../loader/Loader';
 import CarModelGeneralInfo from '../carModelGeneralInfo/carModelGeneralInfo';
-import CarModelComplectation from '../carComplectationPrice/carModelComplectation';
+import CarModelComplectation from '../carModelComplectation/carModelComplectation';
 import CarTechnicalChars from '../carTechnicalChars/carTechnicalChars';
+import CarCompareTechnic from '../carСompareTechnic/carCompareTechnic';
 
 const CarModelPage = (): React.JSX.Element => {
     const { brand, model } = useParams();
@@ -46,6 +47,7 @@ const CarModelPage = (): React.JSX.Element => {
                     <div className={styles.car_model_container}>
                         <CarModelGeneralInfo {...carModel} />
                         <CarModelComplectation {...carModel} />
+                        <CarCompareTechnic />
                         <CarTechnicalChars {...carModel} />
                     </div>
                 ) : null}

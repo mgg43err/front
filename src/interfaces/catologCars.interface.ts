@@ -97,3 +97,25 @@ export interface CarCatologModel {
     car_catalog_images: CarCatologImages[];
     car_catalog_configurations: CarCatologConfigurations[];
 }
+
+export interface CarCompareConfigurations {
+    package_name: string;
+    volume: number;
+    power: number;
+    special_price: number;
+}
+
+export interface CarCompareFeatures {
+    feature_name: string;
+    values: string[];
+}
+
+export interface CarCompareGroups {
+    group_name: string;
+    features: CarCompareFeatures[];
+}
+
+export interface CarCompareCatalog {
+    configurations: CarCompareConfigurations[];
+    groups: CarCompareGroups[];
+}

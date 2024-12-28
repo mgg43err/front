@@ -1,0 +1,108 @@
+.car_model_complectation_title_wrapper {
+    display: block;
+    border-bottom: 1px solid var(--decorative-line-color);
+    padding-bottom: 20px;
+}
+
+.car_model_complectation_title {
+    display: inline-block;
+    font-size: 32px;
+    line-height: 48px;
+    margin-top: 0px;
+    position: relative;
+    &::before {
+        background: var(--main-color);
+        bottom: 0;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.car_model_complectation_notification {
+    font-size: 20px;
+}
+
+.car_model_complectation_table {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.car_model_complectation_table_titles {
+    display: flex;
+    flex-direction: column;
+    padding-top: 230px;
+    width: 40%;
+    border-right: 4px solid var(--main-color);
+}
+
+.car_model_complectation_table_title {
+    align-items: center;
+    display: flex;
+    font-weight: 300;
+    height: 20px;
+    max-width: 316px;
+    width: 100%;
+    min-height: 46px;
+    overflow: hidden;
+    padding-left: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:nth-of-type(even) {
+        background: #f8f8f8;
+    }
+
+    &.big {
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.car_model_complectation_table_content {
+    display: flex;
+    width: 900px;
+}
+
+.car_model_complectation_table_items {
+    width: 100%;
+}
+
+.car_model_complectation_table_content_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 226px;
+    border-right: 1px solid var(--decorative-line-color);
+}
+
+.car_model_complectation_table_description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 200px;
+    min-height: 230px;
+    overflow: hidden;
+
+    :nth-child(1) {
+        padding-left: 10px;
+        font-weight: 600;
+    }
+    :nth-child(2) {
+        padding-left: 10px;
+    }
+    :nth-child(3) {
+        padding-left: 10px;
+        font-weight: 600;
+    }
+}
