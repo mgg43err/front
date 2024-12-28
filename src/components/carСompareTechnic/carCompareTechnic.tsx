@@ -74,6 +74,7 @@ const CarCompareTechnic = (): React.JSX.Element => {
                             })}
                         </div>
                         <Swiper
+                            wrapperClass={styles.swiper_wraper}
                             breakpoints={{
                                 650: {
                                     slidesPerView: 1,
@@ -92,6 +93,7 @@ const CarCompareTechnic = (): React.JSX.Element => {
                             pagination={{
                                 type: 'progressbar',
                             }}
+                            grabCursor
                             modules={[Pagination]}
                             className={styles.car_model_complectation_table_content}
                         >
