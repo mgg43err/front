@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './requestBanner.module.scss';
 import { ButtonCardOpenModal } from '../buttonCardOpenModal/ButtonCard';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../redux/slice/modalSlice';
 
 type RequestBannerProps = {
     brand: string | undefined;
 };
 
 const RequestBanner = (props: RequestBannerProps): React.JSX.Element => {
+    const dispatch = useDispatch();
     const { brand } = props;
     return (
         <div className={styles.request_banner_container}>
@@ -17,7 +20,7 @@ const RequestBanner = (props: RequestBannerProps): React.JSX.Element => {
                 <ButtonCardOpenModal
                     textContent="Оставить заявку"
                     handler={() => {
-                        console.log('call');
+                        dispatch(openModal('callback'));
                     }}
                 />
             </div>

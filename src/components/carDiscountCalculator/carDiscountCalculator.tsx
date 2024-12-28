@@ -4,6 +4,9 @@ import styles from './carDiscountCalculator.module.scss';
 import CheckCreditDiscount from '../checkCreditDiscount/checkCreditDiscount';
 import { CarCatologConfigurations } from '../../interfaces/catologCars.interface';
 import { getCreditDiscountsData } from '../../helpers/catalog/getCreditDiscountsData';
+import { ButtonCardOpenModal } from '../buttonCardOpenModal/ButtonCard';
+import { openModal } from '../../redux/slice/modalSlice';
+import { useDispatch } from 'react-redux';
 
 type CarDiscountCalculatorProps = {
     model: string;
@@ -15,6 +18,7 @@ type CarDiscountCalculatorProps = {
 };
 
 const CarDiscountCalculator = (prop: CarDiscountCalculatorProps): React.JSX.Element => {
+    const dispatch = useDispatch();
     const { model, brand, image, car_catalog_configurations, setDiscount, discount } = prop;
 
     const discounts = getCreditDiscountsData(car_catalog_configurations);
@@ -42,6 +46,20 @@ const CarDiscountCalculator = (prop: CarDiscountCalculatorProps): React.JSX.Elem
                     </div>
                     <img src={image} title={`${brand} ${model}`} alt={`${brand} ${model}`} />
                 </div>
+            </div>
+            <div className={styles.car_discount_generall_buttons_block}>
+                <ButtonCardOpenModal
+                    textContent="Забронировать"
+                    handler={() => {
+                        dispatch(openModal('callback'));
+                    }}
+                />
+                <ButtonCardOpenModal
+                    textContent="Купить в кредит"
+                    handler={() => {
+                        dispatch(openModal('callback'));
+                    }}
+                />
             </div>
         </div>
     );

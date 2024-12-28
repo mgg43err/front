@@ -47,6 +47,11 @@
     }
 }
 
+.car_discount_generall_buttons_block {
+    display: flex;
+    gap: 15px;
+}
+
 @media (max-width: 850px) {
     .car_discount_main {
         flex-direction: column;

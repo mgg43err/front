@@ -7,10 +7,13 @@ import { formatPrice } from '../../helpers/formatPrice';
 const CarModelComplectation = (props: CarCatologModel): React.JSX.Element => {
     const { model, brand, car_catalog_configurations, car_colors } = props;
     const { image } = car_colors[0];
+    const creditDiscount = car_catalog_configurations[0].configurations[0].credit_discount;
+    const tradeInDiscount = car_catalog_configurations[0].configurations[0].trade_in_discount;
+    const recyclingDiscount = car_catalog_configurations[0].configurations[0].recycling_discount;
 
     const [activeRowId, setActiveRowId] = useState<number | null>(null);
+    const [discount, setDiscount] = useState<number>(creditDiscount + tradeInDiscount + recyclingDiscount);
 
-    const [discount, setDiscount] = useState<number>(0);
     const toggleRow = (id: number) => {
         setActiveRowId((prevId) => (prevId === id ? null : id));
     };

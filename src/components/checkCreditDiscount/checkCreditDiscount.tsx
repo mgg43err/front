@@ -22,7 +22,13 @@ const CheckCreditDiscount = (props: CheckCreditDiscountProps) => {
     };
     return (
         <label className={styles.car_discount_label}>
-            <input onChange={handleCheckChange} value={discountValue} type="checkbox" name="credit-calc"></input>
+            <input
+                onChange={handleCheckChange}
+                defaultChecked
+                value={discountValue}
+                type="checkbox"
+                name="credit-calc"
+            ></input>
             <span className={styles.car_discount_item}>
                 <span className={styles.car_discount_check_wrapper}>
                     <span className={styles.car_discount_check}></span>

@@ -11,10 +11,11 @@ const CarPhotoGallery = (props: CarCatologModel): React.JSX.Element => {
                 <h2 className={styles.car_photo_gallery_title}>{`Фотогалерея ${brand} ${model}`}</h2>
             </div>
             <div className={styles.car_photo_gallery_main}>
-                {car_catalog_images.map((image) => {
-                    const { url } = image;
+                {car_catalog_images.map((image, index) => {
+                    const { url, id } = image;
+                    const isLarge = index % (car_catalog_images.length - 1) === 0;
                     return (
-                        <div className={styles.car_photo_gallery_image}>
+                        <div key={id} className={`${styles.car_photo_gallery_image} ${isLarge ? styles.large : ''}`}>
                             <img src={url} title={`${brand} ${model}`} alt={`${brand} ${model}`}></img>
                         </div>
                     );

@@ -9,9 +9,12 @@ import { Loader } from '../loader/Loader';
 import { Pagination } from 'swiper/modules';
 
 import 'swiper/swiper-bundle.css';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../redux/slice/modalSlice';
 
 const CarCompareTechnic = (): React.JSX.Element => {
     const { brand, model } = useParams();
+    const dispatch = useDispatch();
 
     const [carCompare, setCarСompare] = useState<CarCompareCatalog | null>(null);
     const [isLoading, setLoading] = useState<boolean>(false);
@@ -112,7 +115,7 @@ const CarCompareTechnic = (): React.JSX.Element => {
                                                 <ButtonCardOpenModal
                                                     textContent="Забронировать"
                                                     handler={() => {
-                                                        console.log('Бронь');
+                                                        dispatch(openModal('callback'));
                                                     }}
                                                 />
                                             </div>
