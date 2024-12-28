@@ -5,11 +5,10 @@ import { useParams } from 'react-router-dom';
 import { formatPrice } from '../../helpers/formatPrice';
 import { ButtonCardOpenModal } from '../buttonCardOpenModal/ButtonCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Loader } from '../loader/Loader';
+import { Pagination } from 'swiper/modules';
 
 import 'swiper/swiper-bundle.css';
-import './swiper.css';
-import { Pagination } from 'swiper/modules';
-import { Loader } from '../loader/Loader';
 
 const CarCompareTechnic = (): React.JSX.Element => {
     const { brand, model } = useParams();

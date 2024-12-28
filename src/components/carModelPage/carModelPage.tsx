@@ -8,6 +8,7 @@ import CarModelGeneralInfo from '../carModelGeneralInfo/carModelGeneralInfo';
 import CarModelComplectation from '../carModelComplectation/carModelComplectation';
 import CarTechnicalChars from '../carTechnicalChars/carTechnicalChars';
 import CarCompareTechnic from '../carСompareTechnic/carCompareTechnic';
+import CarPhotoGallery from '../carPhotoGallery/carPhotoGallery';
 
 const CarModelPage = (): React.JSX.Element => {
     const { brand, model } = useParams();
@@ -49,6 +50,7 @@ const CarModelPage = (): React.JSX.Element => {
                         <CarModelComplectation {...carModel} />
                         <CarCompareTechnic />
                         <CarTechnicalChars {...carModel} />
+                        <CarPhotoGallery {...carModel} />
                     </div>
                 ) : null}
             </div>
