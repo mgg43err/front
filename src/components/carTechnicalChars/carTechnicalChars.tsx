@@ -14,7 +14,7 @@ const CarTechnicalChars = (props: CarCatologModel): React.JSX.Element => {
                         className={styles.car_technical_chars_title}
                     >{`Технические характеристики ${brand} ${model}`}</h2>
                 </div>
-                {car_catalog_engines.length !== 0 ? (
+                {
                     <>
                         <div className={styles.car_technical_techno_wrapper}>
                             <div className={styles.car_technical_img}>
@@ -94,11 +94,7 @@ const CarTechnicalChars = (props: CarCatologModel): React.JSX.Element => {
                             </div>
                         </div>
                     </>
-                ) : (
-                    <div className={styles.car_technical_notification}>
-                        Информация о технических характеристиках отсутствует.
-                    </div>
-                )}
+                }
             </div>
         </>
     );

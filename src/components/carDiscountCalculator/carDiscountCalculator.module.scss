@@ -58,11 +58,19 @@
 
         align-items: center;
     }
+    .car_discount_generall_price {
+        margin: 0 auto;
+        margin-left: -10rem;
+        margin-top: 3rem;
+    }
 }
 
 @media (max-width: 650px) {
     .car_discount_input_list {
         display: block;
         width: 100%;
+    }
+    .car_discount_generall_price {
+        display: none;
     }
 }

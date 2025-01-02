@@ -1,6 +1,5 @@
 import type { Bank } from './banks.interface';
 import type { AutoCard, CarsCount, CarsCountGenerations, CarsCountModel } from './cars.interface';
-import { CarCatologModel } from './catologCars.interface';
 import type { Filter } from './filter.interface';
 import type { MenuElement } from './header.interface';
 import type { ContactsType, ModalPromotionData } from './interface';
@@ -48,7 +47,7 @@ export type SelectCarModal = {
 export type ModalSlice = {
     modals: {
         burgerMenu: Modal & { menuNavigation: MenuElement[] };
-        callback: Modal & { orderType: 'book' | 'credit' | 'none' };
+        callback: Modal;
         credit: Modal;
         equipment: Modal;
         exchange: Modal;
@@ -83,14 +82,6 @@ export type BanksListSlice = {
 
 export type InStockSlice = {
     inStockList: CarsCount[];
-    stateLoad: {
-        isLoad: boolean;
-        error: boolean;
-    };
-};
-
-export type CatalogCarSlice = {
-    catalogCar: CarCatologModel | null;
     stateLoad: {
         isLoad: boolean;
         error: boolean;

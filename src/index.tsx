@@ -42,6 +42,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import Catalog from './components/catalogPage/catalog/Catalog';
 import BrandModels from './components/brandModels/BrandModels';
 import CarModelPage from './components/carModelPage/carModelPage';
+import ListCatalogs from './componentsAdmin/carCatalog/ListCatalog';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 const router = createBrowserRouter(
@@ -99,6 +100,7 @@ const router = createBrowserRouter(
                     <Route path="about" element={<AboutAdmin />} />
                     <Route path="orders" element={<Orders />} />
                     <Route path="banners" element={<ChangeBanner />} />
+                    <Route path="catalog" element={<ListCatalogs />} />
                 </Route>
             </Route>
         </Route>,

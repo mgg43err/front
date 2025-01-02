@@ -27,9 +27,6 @@
 .slider_horizontal {
     display: flex;
 
-    &__item {
-        background: transparent;
-    }
     &__item_img {
         border-radius: 20px;
         cursor: pointer;

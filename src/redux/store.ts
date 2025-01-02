@@ -12,7 +12,6 @@ import mediaQuerySlice from './slice/mediaQuerySlice';
 import modalSlice from './slice/modalSlice';
 import paymentSlice from './slice/paymentSlice';
 import sortCarsSlice from './slice/sortCarsSlice';
-import catalogCarSlice from './slice/catalogCarSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
@@ -32,7 +31,6 @@ const store = configureStore({
         modal: modalSlice,
         payment: paymentSlice,
         sortCars: sortCarsSlice,
-        catalogCar: catalogCarSlice,
     },
 });
 

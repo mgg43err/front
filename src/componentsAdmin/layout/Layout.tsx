@@ -77,6 +77,11 @@ export const Layout = (): React.JSX.Element => {
             icon: <RobotOutlined />,
         },
         {
+            label: <Link to="/admin/catalog">Каталог</Link>,
+            key: '/admin/catalog',
+            icon: <RobotOutlined />,
+        },
+        {
             label: 'Выход',
             key: 'logout',
             icon: <LogoutOutlined />,

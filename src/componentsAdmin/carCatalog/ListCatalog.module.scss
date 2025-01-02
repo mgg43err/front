@@ -1,0 +1,5 @@
+.container > div,
+.catalog_head {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}

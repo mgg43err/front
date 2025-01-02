@@ -7,13 +7,6 @@
     padding: 0 20px;
     margin: 0 auto;
 }
-
-.car_model_complectation_title_wrapper {
-    display: block;
-    border-bottom: 1px solid var(--decorative-line-color);
-    padding-bottom: 20px;
-}
-
 .car_model_complectation_wrapper table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -26,15 +19,6 @@
     line-height: 48px;
     margin-top: 0px;
     position: relative;
-    &::before {
-        background: var(--main-color);
-        bottom: 0;
-        content: '';
-        height: 2px;
-        left: 0;
-        position: absolute;
-        width: 100%;
-    }
 }
 
 .car_model_prices_titles {
@@ -184,9 +168,6 @@
         > *:nth-child(4) {
             display: none;
         }
-        > *:nth-child(5) {
-            display: none;
-        }
     }
 
     .car_model_complectation_title_main {
@@ -199,14 +180,28 @@
         > *:nth-child(4) {
             display: none;
         }
-        > *:nth-child(5) {
-            display: none;
-        }
     }
 }
 
-@media screen and (max-width: 458px) {
-    .car_model_complectation_title_main {
-        font-size: unset;
+@media screen and (max-width: 468px) {
+    .car_model_complectation_wrapper {
+        padding: 0;
+        gap: 4px;
+    }
+    .car_model_complectation_title {
+        display: inline-block;
+        font-size: 12px;
+        line-height: 18px;
+        margin-top: 0px;
+        position: relative;
+    }
+
+    .car_model_complectation_title_row {
+        font-size: 10px;
+        font-weight: 600;
+        padding-left: 25px;
+        line-height: 30px;
+        text-align: left;
+        height: 30px;
     }
 }

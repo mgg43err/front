@@ -5,7 +5,7 @@ import { CarPrice } from '../carPrice/CarPrice';
 import { ButtonCardOpenModal } from '../buttonCardOpenModal/ButtonCard';
 import CarColorSwitcher from '../carColorSwiper/carColorSwiper';
 import FormSpecialOffer from '../formSpecialOffer/formSpecialOffer';
-import { openModal, setOrderType } from '../../redux/slice/modalSlice';
+import { openModal } from '../../redux/slice/modalSlice';
 import { useDispatch } from 'react-redux';
 
 const CarModelGeneralInfo = (props: CarCatologModel): React.JSX.Element => {
@@ -48,7 +48,6 @@ const CarModelGeneralInfo = (props: CarCatologModel): React.JSX.Element => {
                                     textContent="Купить в кредит"
                                     handler={() => {
                                         dispatch(openModal('callback'));
-                                        dispatch(setOrderType('credit'));
                                     }}
                                 />
                             </div>

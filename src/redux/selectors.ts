@@ -13,5 +13,4 @@ export const lastArrivalsSelector = (state: RootState) => state.lastArrivalsList
 export const mediaQuerySelector = (state: RootState) => state.mediaQuery;
 export const modalSelector = (state: RootState) => state.modal.modals;
 export const paymentSelector = (state: RootState) => state.payment;
-export const catalogCarSelector = (state: RootState) => state.catalogCar;
 export const sortSelector = (state: RootState) => state.sortCars;

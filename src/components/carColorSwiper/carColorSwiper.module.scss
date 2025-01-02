@@ -50,3 +50,9 @@
         box-shadow: 0 4px 20px 0 var(--hover-main-color);
     }
 }
+
+@media (max-width: 850px) {
+    .color_samples_container {
+        margin: 3rem;
+    }
+}
