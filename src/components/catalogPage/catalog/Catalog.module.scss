@@ -1,0 +1,70 @@
+.container {
+    max-width: 1166px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    row-gap: 24px;
+}
+
+.catalog {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.top__brands_container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px 10px;
+    flex-wrap: wrap;
+    max-width: 1140px;
+    position: relative;
+    width: 100%;
+}
+
+.car_list_wrapper {
+    column-count: 4;
+    -moz-column-count: 4;
+    max-width: 1166px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.top__brands_title {
+    font-size: 32px;
+    line-height: 48px;
+    margin-top: 0px;
+    position: relative;
+    &::before {
+        background: var(--main-color);
+        bottom: 0;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 43%;
+    }
+}
+
+@media (max-width: 750px) {
+    .car_list_wrapper {
+        column-count: 3;
+        -moz-column-count: 3;
+    }
+}
+@media (max-width: 650px) {
+    .car_list_wrapper {
+        column-count: 2;
+        -moz-column-count: 2;
+    }
+}

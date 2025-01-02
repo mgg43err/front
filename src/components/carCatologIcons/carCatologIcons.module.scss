@@ -1,0 +1,43 @@
+.top_brands_item {
+    box-sizing: border-box;
+    display: block;
+    font-size: 16px;
+    height: 65.5938px;
+    line-height: 18.4px;
+    margin: 0 0 20px;
+    position: relative;
+    text-align: center;
+    width: 11rem;
+    cursor: pointer;
+
+    &:hover {
+        .top_brands_title {
+            color: var(--hover-main-color);
+        }
+    }
+}
+
+.top_brands_img {
+    margin: 0 auto;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+.top_brands_title {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.top_brands_countcars {
+    color: #888;
+    font-size: 12px;
+}

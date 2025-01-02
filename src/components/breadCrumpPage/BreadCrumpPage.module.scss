@@ -1,0 +1,33 @@
+.breadCrump {
+    display: flex;
+    gap: 24px;
+    margin: 24px 0 0px;
+
+    &__item {
+        color: var(--light-text-color);
+        font-size: 16px;
+        line-height: 24px;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translate(50%, -50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--main-color);
+        }
+    }
+
+    &__item_active {
+        cursor: default;
+
+        &::after {
+            display: none;
+        }
+    }
+}

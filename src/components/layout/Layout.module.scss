@@ -1,0 +1,23 @@
+.body_inner {
+    overflow-x: clip;
+    position: relative;
+    width: 100%;
+}
+
+.main {
+    position: relative;
+    top: -100px;
+    border-top-color: var(--burger-menu-background-color);
+    background-color: var(--container-background-color);
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%; // Начинаем сразу под элементом .main
+        left: 0;
+        right: 0;
+        height: 100px; // Высота черного фона
+        background-color: var(--container-background-color); // Черный фон
+        z-index: -1; // Убедитесь, что псевдоэлемент находится под .main
+    }
+}
