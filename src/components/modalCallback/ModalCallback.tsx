@@ -1,36 +1,59 @@
 import React from 'react';
 import styles from './ModalCallback.module.scss';
 import { CheckboxAgree } from '../checkboxAgree/CheckboxAgree';
-import { closeModal } from '../../redux/slice/modalSlice';
+import { closeModal, setOrderType } from '../../redux/slice/modalSlice';
 import { Cross } from '../svg/Svg';
 import { FormField } from '../formField/FormField';
 import { FormFieldPhone } from '../formFieldPhone/FormFieldPhone';
 import { FormFieldSelect } from '../formFieldSelect/FormFieldSelect';
 import { FormSendButton } from '../formSendButton/FormSendButton';
-import { modalSelector } from '../../redux/selectors';
+import { catalogCarSelector, modalSelector } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModalCallback } from '../../hook/useModalCallback';
+import { useParams } from 'react-router-dom';
 
 export const ModalCallback = (): React.JSX.Element => {
     const dispatch = useDispatch();
-    const callbackModalState: boolean = useSelector(modalSelector).callback.modalState;
+    const { brand, model } = useParams();
+    const { modalState, orderType } = useSelector(modalSelector).callback;
+    const { catalogCar } = useSelector(catalogCarSelector);
     const { register, errors, handleSubmit, onSubmit, setValue, reset } = useModalCallback();
 
     const crossHandler = (): void => {
         reset();
         dispatch(closeModal('callback'));
+        dispatch(setOrderType('none'));
+    };
+
+    const getModalTitle = (type: 'none' | 'book' | 'credit') => {
+        const titleText: Record<'none' | 'book' | 'credit', string> = {
+            book: `Забронировать ${brand} ${model?.split('_')[0]}`,
+            credit: `Купить в кредит ${brand} ${model?.split('_')[0]}`,
+            none: 'Обратный звонок',
+        };
+
+        return titleText[type];
     };
 
     return (
         <div
-            className={`${styles.modal_callback} ${callbackModalState ? styles.modal_callback_active : ''}`}
+            className={`${styles.modal_callback} ${modalState ? styles.modal_callback_active : ''}`}
             onClick={crossHandler}
         >
             <div className={styles.modal_callback__inner} onClick={(event) => event.stopPropagation()}>
-                <h3 className={styles.modal_callback__title}>Обратный звонок</h3>
+                <h3 className={styles.modal_callback__title}>{getModalTitle(orderType)}</h3>
                 <div className={styles.modal_callback__content}>
                     <form className={styles.modal_callback__form} onSubmit={handleSubmit(onSubmit)}>
                         <h4 className={styles.modal_callback__form_title}>
+                            {orderType !== 'none' ? (
+                                <div className={styles.modal_callback__img}>
+                                    <img
+                                        src={catalogCar?.car_colors[0].image}
+                                        title={`${brand} ${model?.split('_')[0]}`}
+                                        alt={`${brand} ${model?.split('_')[0]}`}
+                                    ></img>
+                                </div>
+                            ) : null}
                             <span>Оставьте заявку, и наши операторы свяжутся с вами в течение 5 минут!</span>
                             <Cross className={styles.modal_callback__cross} handler={crossHandler} />
                         </h4>

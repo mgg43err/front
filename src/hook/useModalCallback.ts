@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { customFetch } from '../helpers/customFetch';
-import { modalSelector } from '../redux/selectors';
+import { catalogCarSelector, modalSelector } from '../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../redux/slice/modalSlice';
 import type { UseModalCallback } from '../interfaces/hook.interface';
@@ -12,6 +12,7 @@ export const useModalCallback = (): UseModalCallback => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const selectCar = useSelector(modalSelector)?.selectCar.filter?.car?.carSelect;
+    const { catalogCar } = useSelector(catalogCarSelector);
     const {
         register,
         formState: { errors },
@@ -27,7 +28,7 @@ export const useModalCallback = (): UseModalCallback => {
     const onSubmit = async (data: CallbackFormData) => {
         const dataQuery = {
             call_request: {
-                car_id: selectCar.id || null,
+                car_id: selectCar.id || catalogCar?.id || null,
                 name: data.name,
                 phone: data.phone,
                 preferred_time: data.preferred_time,

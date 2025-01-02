@@ -1,35 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BreadCrumpPage } from '../breadCrumpPage/BreadCrumpPage';
 import styles from './carModelPage.module.scss';
 import { useParams } from 'react-router-dom';
-import { CarCatologModel } from '../../interfaces/catologCars.interface';
 import { Loader } from '../loader/Loader';
 import CarModelGeneralInfo from '../carModelGeneralInfo/carModelGeneralInfo';
 import CarModelComplectation from '../carModelComplectation/carModelComplectation';
 import CarTechnicalChars from '../carTechnicalChars/carTechnicalChars';
 import CarCompareTechnic from '../carСompareTechnic/carCompareTechnic';
 import CarPhotoGallery from '../carPhotoGallery/carPhotoGallery';
+import { useDispatch, useSelector } from 'react-redux';
+import { catalogCarLoader } from '../../redux/slice/catalogCarSlice';
+import { catalogCarSelector } from '../../redux/selectors';
+import { AppDispatch } from '../../redux/store';
 
 const CarModelPage = (): React.JSX.Element => {
     const { brand, model } = useParams();
-
-    const [carModel, setCarModel] = useState<CarCatologModel | null>(null);
-    const [isLoading, setLoading] = useState<boolean>(false);
+    const dispatch = useDispatch<AppDispatch>();
+    const {
+        catalogCar,
+        stateLoad: { isLoad },
+    } = useSelector(catalogCarSelector);
 
     useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            try {
-                const response = await fetch(`${process.env.REACT_APP_BASE_URL!}/car_catalogs/${model?.split('_')[1]}`);
-                const result = await response.json();
-                setCarModel(result[0]);
-                setLoading(false);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        fetchData();
-    }, []);
+        dispatch(catalogCarLoader(model));
+    }, [dispatch]);
 
     return (
         <div className={styles.container}>
@@ -42,15 +36,15 @@ const CarModelPage = (): React.JSX.Element => {
                         { name: `${model?.split('_')[0]}`, url: `/catalog/${brand}/${model}` },
                     ]}
                 />
-                {isLoading ? (
+                {isLoad ? (
                     <Loader />
-                ) : carModel ? (
+                ) : catalogCar ? (
                     <div className={styles.car_model_container}>
-                        <CarModelGeneralInfo {...carModel} />
-                        <CarModelComplectation {...carModel} />
+                        <CarModelGeneralInfo {...catalogCar} />
+                        <CarModelComplectation {...catalogCar} />
                         <CarCompareTechnic />
-                        <CarTechnicalChars {...carModel} />
-                        <CarPhotoGallery {...carModel} />
+                        <CarTechnicalChars {...catalogCar} />
+                        <CarPhotoGallery {...catalogCar} />
                     </div>
                 ) : null}
             </div>
