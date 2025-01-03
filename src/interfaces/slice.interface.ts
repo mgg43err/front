@@ -48,7 +48,7 @@ export type SelectCarModal = {
 export type ModalSlice = {
     modals: {
         burgerMenu: Modal & { menuNavigation: MenuElement[] };
-        callback: Modal;
+        callback: Modal & { orderType: 'book' | 'credit' | 'none' };
         credit: Modal;
         equipment: Modal;
         exchange: Modal;

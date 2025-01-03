@@ -5,7 +5,7 @@ import CheckCreditDiscount from '../checkCreditDiscount/checkCreditDiscount';
 import { CarCatologConfigurations } from '../../interfaces/catologCars.interface';
 import { getCreditDiscountsData } from '../../helpers/catalog/getCreditDiscountsData';
 import { ButtonCardOpenModal } from '../buttonCardOpenModal/ButtonCard';
-import { openModal } from '../../redux/slice/modalSlice';
+import { openModal, setOrderType } from '../../redux/slice/modalSlice';
 import { useDispatch } from 'react-redux';
 
 type CarDiscountCalculatorProps = {
@@ -52,12 +52,14 @@ const CarDiscountCalculator = (prop: CarDiscountCalculatorProps): React.JSX.Elem
                     textContent="Забронировать"
                     handler={() => {
                         dispatch(openModal('callback'));
+                        dispatch(setOrderType('book'));
                     }}
                 />
                 <ButtonCardOpenModal
                     textContent="Купить в кредит"
                     handler={() => {
                         dispatch(openModal('callback'));
+                        dispatch(setOrderType('credit'));
                     }}
                 />
             </div>

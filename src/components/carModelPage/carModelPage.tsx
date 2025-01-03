@@ -24,7 +24,7 @@ const CarModelPage = (): React.JSX.Element => {
 
     useEffect(() => {
         dispatch(catalogCarLoader(model));
-    });
+    }, [dispatch]);
 
     return (
         <div className={styles.container}>

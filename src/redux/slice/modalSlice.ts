@@ -29,6 +29,10 @@ const modalSlice = createSlice({
             scrollManager.scrollOn();
         },
 
+        setOrderType(state, action: PayloadAction<'book' | 'credit' | 'none'>) {
+            state.modals.callback.orderType = action.payload;
+        },
+
         setPromotionData(state, action: PayloadAction<Omit<ModalPromotionData, 'modalPromotionState' | 'img'>>) {
             state.modals.promotion.title = action.payload.title;
             state.modals.promotion.description = action.payload.description;
@@ -126,5 +130,6 @@ export const {
     setFilterGeneration,
     setSelectCar,
     resetSelectCar,
+    setOrderType,
 } = modalSlice.actions;
 export default modalSlice.reducer;

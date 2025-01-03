@@ -10,7 +10,7 @@ import { Pagination } from 'swiper/modules';
 
 import 'swiper/swiper-bundle.css';
 import { useDispatch } from 'react-redux';
-import { openModal } from '../../redux/slice/modalSlice';
+import { openModal, setOrderType } from '../../redux/slice/modalSlice';
 
 const CarCompareTechnic = (): React.JSX.Element => {
     const { brand, model } = useParams();
@@ -35,7 +35,7 @@ const CarCompareTechnic = (): React.JSX.Element => {
         };
         fetchData();
     }, []);
-    console.log(isLoading);
+
     return (
         <div className={styles.car_compare_technic_container}>
             <div className={styles.car_model_complectation_title_wrapper}>
@@ -116,6 +116,7 @@ const CarCompareTechnic = (): React.JSX.Element => {
                                                     textContent="Забронировать"
                                                     handler={() => {
                                                         dispatch(openModal('callback'));
+                                                        dispatch(setOrderType('book'));
                                                     }}
                                                 />
                                             </div>

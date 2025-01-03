@@ -56,6 +56,7 @@ export const initialStateModal: ModalSlice = {
         },
         callback: {
             modalState: false,
+            orderType: 'none',
         },
         credit: {
             modalState: false,
