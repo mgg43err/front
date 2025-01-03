@@ -41,7 +41,6 @@ export type InstallmentPostQuery = FormQuery;
 
 export type BuyoutFormData = Omit<ExtraField, 'trade_in_credit'> & BuyoutPostQuery;
 export type CreditFormData = Omit<ExtraField, 'trade_in_credit'> & CreditPostQuery;
-export type SpecialOfferData = Omit<ExtraField, 'special_offer'> & SpecialOfferQuery;
 export type ExchangeFormData = Omit<ExtraField, 'agree_country'> & ExchangePostQuery;
 export type InstallmentFormData = Omit<ExtraField, 'trade_in_credit'> & InstallmentPostQuery;
 export type CallbackFormData = Omit<ExtraField, 'trade_in_credit' | 'agree_country'> & CallbackPostQuery;

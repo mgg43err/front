@@ -5,7 +5,10 @@ import { FormFieldPhone } from '../formFieldPhone/FormFieldPhone';
 import { FormSendButton } from '../formSendButton/FormSendButton';
 import styles from './formSpecialOffer.module.scss';
 import { useForm } from 'react-hook-form';
-import { SpecialOfferData } from '../../interfaces/formQuery.interface';
+import { CallbackFormData, CallbackPostQuery } from '../../interfaces/formQuery.interface';
+import { SuccessInformation } from '../../interfaces/form.interface';
+import { customFetch } from '../../helpers/customFetch';
+import { useNavigate } from 'react-router-dom';
 
 type FormSpecialOfferProps = {
     brand: string;
@@ -14,15 +17,16 @@ type FormSpecialOfferProps = {
 
 const FormSpecialOffer = (props: FormSpecialOfferProps): React.JSX.Element => {
     const { brand, model } = props;
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<SpecialOfferData>({
+        reset,
+    } = useForm<CallbackFormData>({
         mode: 'onSubmit',
         defaultValues: {
             agree: true,
-            agree_country: true,
         },
         resolver: (values) => {
             const errorsResolver: Record<string, any> = {};
@@ -42,8 +46,28 @@ const FormSpecialOffer = (props: FormSpecialOfferProps): React.JSX.Element => {
         },
     });
 
-    const onSubmit = () => {
-        console.log('Submit');
+    const onSubmit = async (data: CallbackFormData) => {
+        const dataQuery = {
+            call_request: {
+                car_id: null,
+                name: data.name,
+                phone: data.phone,
+                preferred_time: 'Как можно скорее',
+            } as CallbackPostQuery,
+        };
+
+        const successInformation: SuccessInformation = {
+            user_name: data.name,
+            from: 'Заявка на обратный звонок принята',
+        };
+
+        try {
+            await customFetch({ url: 'call_requests', data: JSON.stringify(dataQuery), method: 'POST' });
+            navigate('/success', { state: successInformation, replace: true });
+            reset();
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
