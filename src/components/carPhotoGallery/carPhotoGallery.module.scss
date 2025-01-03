@@ -57,6 +57,15 @@
     }
 }
 
+@media (max-width: 1142px) {
+    .car_photo_gallery_main {
+        .car_photo_gallery_image:nth-child(2) {
+            grid-column: auto;
+            grid-row: auto;
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .car_photo_gallery_main {
         grid-template-columns: 1fr;
