@@ -6,7 +6,7 @@ import { CarCatologModel } from '../../interfaces/catologCars.interface';
 const initialState: CatalogCarSlice = {
     catalogCar: null,
     stateLoad: {
-        isLoad: false,
+        isLoading: false,
         error: false,
     },
 };
@@ -34,17 +34,17 @@ const catalogCarSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(catalogCarLoader.fulfilled, (state, action) => {
-                state.stateLoad.isLoad = false;
+                state.stateLoad.isLoading = false;
                 state.stateLoad.error = false;
                 state.catalogCar = action.payload;
             })
             .addCase(catalogCarLoader.pending, (state) => {
                 state.stateLoad.error = false;
-                state.stateLoad.isLoad = true;
+                state.stateLoad.isLoading = true;
             })
             .addCase(catalogCarLoader.rejected, (state) => {
                 state.stateLoad.error = true;
-                state.stateLoad.isLoad = false;
+                state.stateLoad.isLoading = false;
             });
     },
 });

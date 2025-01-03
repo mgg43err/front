@@ -1,5 +1,6 @@
 import type { Bank } from './banks.interface';
 import type { AutoCard, CarsCount, CarsCountGenerations, CarsCountModel } from './cars.interface';
+import { CarCatologModel } from './catologCars.interface';
 import type { Filter } from './filter.interface';
 import type { MenuElement } from './header.interface';
 import type { ContactsType, ModalPromotionData } from './interface';
@@ -132,6 +133,14 @@ export type ContactsSlice = {
 
 export type AboutSlice = {
     about: { id: number; description: string }[];
+    stateLoad: {
+        isLoading: boolean;
+        error: boolean;
+    };
+};
+
+export type CatalogCarSlice = {
+    catalogCar: CarCatologModel | null;
     stateLoad: {
         isLoading: boolean;
         error: boolean;
